@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="channel name"
+        android:id="@+id/tv_channel_name"
+        android:layout_margin="10dp"
+        android:singleLine="true"/>
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_gravity="start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rdGroup"
+            android:orientation="vertical">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="importance"
+                android:id="@+id/importance"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="medium"
+                android:id="@+id/medium"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="low"
+                android:id="@+id/low"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:layout_margin="10dp"
+        android:id="@+id/tv_channel_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:inputType="textMultiLine"
+        android:hint="describe here" />
+</LinearLayout>

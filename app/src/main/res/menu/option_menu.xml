@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Notification">
+        <menu>
+            <item android:title="create channel"
+                android:id="@+id/create_channel"
+                android:icon="@drawable/notification"/>
+            <item android:title="create group"
+                android:id="@+id/create_channel_group"
+                android:icon="@drawable/bell_group"/>
+            <item android:title="delete channel"
+                android:id="@+id/delete_channel"
+                android:icon="@drawable/delete_button"/>
+        </menu>
+    </item>
+</menu>
