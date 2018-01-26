@@ -18,4 +18,14 @@
         android:layout_height="wrap_content"
         android:text="with small image nitificatioin"
         android:onClick="pushSmallNotification"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="with Big Boxstyle nitificatioin"
+        android:onClick="pushBigBoxstyleNotification"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="with BigPicture style nitificatioin"
+        android:onClick="pushBigPictureStyleNotification"/>
 </LinearLayout>

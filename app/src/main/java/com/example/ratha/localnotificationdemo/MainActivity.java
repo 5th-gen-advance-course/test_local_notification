@@ -109,6 +109,75 @@ public class MainActivity extends AppCompatActivity {
         mManager.notify(notificationId,builder.build());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void pushBigBoxstyleNotification(View view) {
+        String channelId="business_id";
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,channelId);
+        builder.setContentTitle("expanded layout");
+        builder.setSmallIcon(R.drawable.ic_stat_onesignal_default);
+        String content="Applying an expanded layout to a notification";
+        builder.setContentText(content);
+        builder.setTicker("new post");
+
+        NotificationCompat.InboxStyle inboxStyle=new NotificationCompat.InboxStyle();
+        inboxStyle.setBigContentTitle("When you need to issue a notification multiple...  ");
+        inboxStyle.addLine("When you need to issue a notification multiple times for the same type of event, you should avoid making a completely new notification. Instead, you should consider updating a previous notification, either by changing some of its values or by adding to it, or both.");
+        inboxStyle.setSummaryText("When you need to issue a notification multiple times for");
+        builder.setStyle(inboxStyle);
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.navdrawer_header));
+        builder.setAutoCancel(true);
+
+        Intent resultIntent=new Intent(this,DetailActivity.class);
+        resultIntent.putExtra("detail",content);
+
+        TaskStackBuilder stackBuilder=TaskStackBuilder.create(this);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent pendingIntent= stackBuilder.getPendingIntent(
+                0,PendingIntent.FLAG_ONE_SHOT
+        );
+        builder.setContentIntent(pendingIntent);
+        NotificationManager mManager= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        int notificationId= (int) (System.currentTimeMillis()/1000);
+        mManager.notify(notificationId,builder.build());
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void pushBigPictureStyleNotification(View view) {
+        String channelId="business_id";
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,channelId);
+        builder.setContentTitle("expanded layout");
+        builder.setAutoCancel(true);
+        builder.setSmallIcon(R.drawable.ic_stat_onesignal_default);
+        String content="Applying an expanded layout to a notification";
+        builder.setContentText(content);
+        builder.setTicker("new post");
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.navdrawer_header));
+
+
+        NotificationCompat.BigPictureStyle bigPictureStyle=new NotificationCompat.BigPictureStyle();
+
+        bigPictureStyle.setSummaryText("Remember that expanded ...");
+        bigPictureStyle.setBigContentTitle("Remember that expanded notifications are not available on platforms prior to Android 4.1.");
+        bigPictureStyle.bigPicture(BitmapFactory.decodeResource(getResources(),R.drawable.navdrawer_header));
+        bigPictureStyle.bigLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.bell_group));
+
+        builder.setStyle(bigPictureStyle);
+
+        Intent resultIntent=new Intent(this,DetailActivity.class);
+        resultIntent.putExtra("detail",content);
+
+        TaskStackBuilder stackBuilder=TaskStackBuilder.create(this);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent pendingIntent= stackBuilder.getPendingIntent(
+                0,PendingIntent.FLAG_CANCEL_CURRENT
+        );
+        builder.setContentIntent(pendingIntent);
+        NotificationManager mManager= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        int notificationId= (int) (System.currentTimeMillis()/1000);
+        mManager.notify(notificationId,builder.build());
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
@@ -230,6 +299,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         return dialog;
     }
+
 
 
 }
